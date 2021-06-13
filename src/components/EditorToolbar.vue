@@ -5,7 +5,7 @@
         <li @click="handleSelect('undo')"><i class="fa fa-undo"></i></li>
         <li @click="handleSelect('repeat')"><i class="fa fa-repeat"></i></li>
         <li class="disable">|</li>
-       
+
         <!-- <li @click="handleSelect('random')"><i class="fa fa-random"></i></li> -->
         <li @click="handleSelect('number')"><i class="fa fa-outdent"></i></li>
         <li>
@@ -71,7 +71,7 @@
             </li>
           </ol>
         </li>
-         <li @click="handleSelect('wrap')"><i class="fa fa-exchange"></i></li>
+        <li @click="handleSelect('wrap')"><i class="fa fa-exchange"></i></li>
         <li class="disable">|</li>
         <li @click="handleSelect('format')"><i class="fa fa-wpforms"></i></li>
         <li @click="handleSelect('trash')"><i class="fa fa-trash"></i></li>
@@ -118,15 +118,11 @@ export default {
           mark: "hc-black",
         },
       ],
-     // languageArr: [],  ['abap', 'apex', 'azcli', 'bat', 'cameligo', 'clojure', 'coffee', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'solidity', 'sophia', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'xml', 'yaml'],
+      // languageArr: [],  ['abap', 'apex', 'azcli', 'bat', 'cameligo', 'clojure', 'coffee', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'solidity', 'sophia', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'xml', 'yaml'],
     };
   },
-  props: {
-    options: Object,
-    language: String,
-    languageModal: Array,
-  },
-  mounted() { 
+  props: ["options", "language", "languageModal"],
+  mounted() {
     this.size = this.options.fontSize;
     this.theme = this.options.theme;
   },
