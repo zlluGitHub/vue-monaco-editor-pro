@@ -1,6 +1,7 @@
 {
   "name": "vue-monaco-editor-pro",
-  "version": "0.0.1",
+  "version": "0.1.1",
+  "description": "vue-monaco-editor-pro 是基于 Monaco editor 开发的简易版 web 端代码编辑器 Vue 组件。",
   "private": false,
   "main": "src/index.js",
   "scripts": {
@@ -12,6 +13,7 @@
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
     "monaco-editor": "^0.24.0",
+    "monaco-editor-webpack-plugin": "^3.1.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -21,11 +23,27 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "monaco-editor-webpack-plugin": "^3.1.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zlluGitHub/vue-monaco-editor-pro.git"
+  },
+  "keywords": [
+    "editor",
+    "vue",
+    "vuejs",
+    "monaco-editor",
+    "code"
+  ],
+  "author": "zlluGitHub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlluGitHub/vue-monaco-editor-pro/issues"
+  },
+  "homepage": "https://github.com/zlluGitHub/vue-monaco-editor-pro#readme",
   "eslintConfig": {
     "root": true,
     "env": {

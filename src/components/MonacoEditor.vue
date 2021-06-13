@@ -5,18 +5,19 @@
       @on-click="handleToolClick"
       :options="options"
       :language="language"
+      :languageModal="languageModal"
     />
     <div class="editor-container" ref="container"></div>
   </div>
 </template>
 
-<script> 
+<script>
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
-import EditorToolbar from "@/components/EditorToolbar"; 
+import EditorToolbar from "./EditorToolbar";
 export default {
   name: "MonacoEditor",
   components: {
-    EditorToolbar
+    EditorToolbar,
   },
   data() {
     return {
@@ -30,6 +31,28 @@ export default {
     original: { type: String, default: "javascript" }, //只有在diff模式下有效
     content: { type: String, default: "javascript" },
     language: { type: String, default: "javascript" },
+    languageModal: {
+      type: Array,
+      default: [
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "less",
+        "scss",
+        "json",
+        "markdown",
+        "java",
+        "shell",
+        "mysql",
+        "php",
+        "redis",
+        "python",
+        "sql",
+        "xml",
+        "go",
+      ],
+    },
     theme: { type: String, default: "vs-dark" },
     options: {
       type: Object,
@@ -59,7 +82,7 @@ export default {
         this.editor && this.editor.updateOptions(options);
       },
     },
-    value(val) {
+    content(val) {
       this.handleValue(val);
     },
     language(val) {
@@ -131,7 +154,7 @@ export default {
       } else if (type === "trash") {
         //清空
         // this.editor.setValue("");
-        this.handleValue(value);
+        this.handleValue("");
       } else if (type === "save") {
         //保存
         this.$emit("on-save", this.editor.getValue());
@@ -219,8 +242,8 @@ export default {
     },
 
     _emitChange(value, event) {
-      this.$emit("change", value, event);
-      this.$emit("input", value);
+      this.$emit("on-change", value, event);
+      this.$emit("on-input", value);
     },
   },
   beforeDestroy() {

@@ -62,7 +62,7 @@
           </span>
           <ol class="theme-warp" v-if="isOpenLanguage">
             <li
-              v-for="(item, i) in languageArr"
+              v-for="(item, i) in languageModal"
               :key="'th' + i"
               @click="handleSelectLanguage(item)"
               :class="{ active: language === item }"
@@ -118,33 +118,15 @@ export default {
           mark: "hc-black",
         },
       ],
-      languageArr: [
-        "json",
-        "go",
-        "css",
-        "html",
-        "java",
-        "javascript",
-        "less",
-        "markdown",
-        "mysql",
-        "php",
-        "python",
-        "scss",
-        "shell",
-        "redis",
-        "sql",
-        "typescript",
-        "xml",
-      ], // ['abap', 'apex', 'azcli', 'bat', 'cameligo', 'clojure', 'coffee', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'solidity', 'sophia', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'xml', 'yaml'],
+     // languageArr: [],  ['abap', 'apex', 'azcli', 'bat', 'cameligo', 'clojure', 'coffee', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'solidity', 'sophia', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'xml', 'yaml'],
     };
   },
   props: {
     options: Object,
     language: String,
+    languageModal: Array,
   },
-  mounted() {
-    // this.language = this.language;
+  mounted() { 
     this.size = this.options.fontSize;
     this.theme = this.options.theme;
   },
@@ -223,9 +205,11 @@ export default {
         border: 1px solid #ebeef5;
         border-radius: 2px;
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        max-height: 300px;
+        overflow-y: auto;
         > li {
-          padding: 6px 20px;
-          font-size: 14px;
+          padding: 5px 20px;
+          font-size: 13px;
           &:hover {
             // background: #fe720025;
             // color: #fe7300;
