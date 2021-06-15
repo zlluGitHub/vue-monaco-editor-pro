@@ -1,13 +1,14 @@
 <template>
   <div class="monaco-container" :style="style">
     <EditorToolbar
+     
       v-if="options.isToolbar"
       @on-click="handleToolClick"
       :options="options"
       :language="language"
       :languageModal="languageModal"
-    />
-    <div class="editor-container" ref="container"></div>
+    /> 
+    <div @keyup.ctrl.83.prevent.stop="handleToolClick({ type: 'save' })" class="editor-container" ref="container"></div>
   </div>
 </template>
 
@@ -28,12 +29,42 @@ export default {
     diffEditor: { type: Boolean, default: false }, //是否使用diff模式
     width: { type: [String, Number], default: "100%" },
     height: { type: [String, Number], default: "100vh" },
-    original: { type: String, default: "javascript" }, //只有在diff模式下有效
-    content: { type: String, default: "javascript" },
-    language: { type: String, default: "javascript" },
+    original: { type: String, default: "html" }, //只有在diff模式下有效
+    content: {
+      type: String,
+      default: `\<style lang="scss" scoped\>
+  .content{
+    height:100%;
+    width: 100%;
+  }
+\<\/style\>
+\<template\>
+  \<div class="content"\>
+    \<VueMonacoEditorPro ref="monacoEditor" :content="content" :language="language" :theme="theme" width="100%" height="100%" \/\>
+  \<\/div\>
+\<\/template\>
+
+\<script\>
+  import VueMonacoEditorPro from "vue-monaco-editor-pro"; 
+  export default {
+    components: {
+      VueMonacoEditorPro
+    },
+    data() {
+      return {
+        content: "",
+        theme: "vs-dark",
+        language: "html"
+      };
+    }
+  }
+\<\/script\>`,
+    },
+    language: { type: String, default: "html" },
+    isToolbar: { type: Boolean, default: true },
     languageModal: {
       type: Array,
-      default: [
+      default: () => [
         "javascript",
         "typescript",
         "html",
@@ -126,7 +157,7 @@ export default {
         monaco.editor.setModelLanguage(original, val);
         monaco.editor.setModelLanguage(modified, val);
       } else monaco.editor.setModelLanguage(this.editor.getModel(), val);
-    },
+    }, 
     handleToolClick({ type, value }) {
       // console.log(type, value);
       if (type === "undo") {

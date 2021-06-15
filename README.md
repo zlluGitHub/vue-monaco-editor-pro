@@ -84,4 +84,4 @@ module.exports = {
 | on-mounted      | editor, monaco | 编辑器挂载之后     |
 | on-change       | value, event   | 内容改变后触发     |
 | on-input        | value          | 内容改变后触发     |
-| on-save         | value          | 保存点击按钮时触发 |
+| on-save         | value          | 保存点击按钮时触发（ ctrl + s ） |
