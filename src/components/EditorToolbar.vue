@@ -75,8 +75,8 @@
         <li class="disable">|</li>
         <li @click="handleSelect('format')"><i class="fa fa-wpforms"></i></li>
         <li @click="handleSelect('trash')"><i class="fa fa-trash"></i></li>
-        <li @click="handleSelect('save')"><i class="fa fa-save"></i></li>
         <li @click="handleSelect('search')"><i class="fa fa-search"></i></li>
+        <li @click="handleSelect('save')" ><i class="fa fa-save"></i></li>
       </ul>
       <div
         v-if="isOpenSize || isOpenTheme || isOpenLanguage"

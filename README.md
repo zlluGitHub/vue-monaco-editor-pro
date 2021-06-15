@@ -65,22 +65,23 @@ module.exports = {
 
 ## Props属性
 
-| 属性值     | 类型          | 默认值       | 描述                                                                                                                                    |
-|:-----------|:--------------|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| languageModal   | Array        | ['json', 'go', 'css', 'html', 'java', 'javascript', 'less', 'markdown', 'mysql', 'php', 'python', 'scss', 'shell', 'redis', 'sql', 'typescript', 'xml'] | 代码语言模块                                                                                                                                |
-| language   | String        | `javascript` | 代码语言                                                                                                                                |
-| height     | Number/String | `100%`       | 编辑器高度                                                                                                                              |
-| width      | Number/String | `100%`       | 编辑器宽度                                                                                                                              |
-| diffEditor | Boolean       | false        | 是否开启 diff 模式                                                                                                                      |
-| original   | String        | null         | diff 内容（只有在diff模式下有效）                                                                                                       |
-| content    | String        | null         | 内容                                                                                                                                    |
-| theme      | String        | `vs-dark`    | 主题（hc-black、vs-dark、vs-light）                                                                                                     |
-| options    | Object        | {}           | 可查看：[Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
+| 属性值        | 类型          | 默认值                                                                                                                                                  | 描述                                                                                                                                    |
+|:--------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|
+| languageModal | Array         | ['json', 'go', 'css', 'html', 'java', 'javascript', 'less', 'markdown', 'mysql', 'php', 'python', 'scss', 'shell', 'redis', 'sql', 'typescript', 'xml'] | 代码语言模块                                                                                                                            |
+| language      | String        | `javascript`                                                                                                                                            | 代码语言                                                                                                                                |
+| height        | Number/String | `100%`                                                                                                                                                  | 编辑器高度                                                                                                                              |
+| width         | Number/String | `100%`                                                                                                                                                  | 编辑器宽度                                                                                                                              |
+| diffEditor    | Boolean       | false                                                                                                                                                   | 是否开启 diff 模式                                                                                                                      |
+| original      | String        | null                                                                                                                                                    | diff 内容（只有在diff模式下有效）                                                                                                       |
+| content       | String        | null                                                                                                                                                    | 内容                                                                                                                                    |
+| theme         | String        | `vs-dark`                                                                                                                                               | 主题（hc-black、vs-dark、vs-light）                                                                                                     |
+| options       | Object        | {}                                                                                                                                                      | 可查看：[Monaco Editor Options](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) |
 
 ## 方法属性
-| 属性值          | 返回值         | 描述           |
-|:----------------|:---------------|:---------------|
-| on-before-mount | monaco         | 编辑器挂载之前 |
-| on-mounted      | editor, monaco | 编辑器挂载之后 |
-| on-change       | value, event   | 内容改变后触发 |
-| on-input        | value          | 内容改变后触发 |
+| 属性值          | 返回值         | 描述               |
+|:----------------|:---------------|:-------------------|
+| on-before-mount | monaco         | 编辑器挂载之前     |
+| on-mounted      | editor, monaco | 编辑器挂载之后     |
+| on-change       | value, event   | 内容改变后触发     |
+| on-input        | value          | 内容改变后触发     |
+| on-save         | value          | 保存点击按钮时触发 |
