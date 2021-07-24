@@ -1,14 +1,18 @@
 <template>
   <div class="monaco-container" :style="style">
     <EditorToolbar
-     
       v-if="options.isToolbar"
       @on-click="handleToolClick"
       :options="options"
-      :language="language"
+      :language="languageVal"
+      :theme="theme"
       :languageModal="languageModal"
-    /> 
-    <div @keyup.ctrl.83.prevent.stop="handleToolClick({ type: 'save' })" class="editor-container" ref="container"></div>
+    />
+    <div
+      @keyup.ctrl.83.prevent.stop="handleToolClick({ type: 'save' })"
+      class="editor-container"
+      ref="container"
+    ></div>
   </div>
 </template>
 
@@ -23,6 +27,7 @@ export default {
   data() {
     return {
       editor: null,
+      languageVal: "", 
     };
   },
   props: {
@@ -150,6 +155,7 @@ export default {
       this.editor && monaco.editor.setTheme(val);
     },
     handlerLanguage(val) {
+      this.languageVal = val;
       if (!this.editor) return;
       if (this.diffEditor) {
         //diff模式下更新language
@@ -157,7 +163,7 @@ export default {
         monaco.editor.setModelLanguage(original, val);
         monaco.editor.setModelLanguage(modified, val);
       } else monaco.editor.setModelLanguage(this.editor.getModel(), val);
-    }, 
+    },
     handleToolClick({ type, value }) {
       // console.log(type, value);
       if (type === "undo") {
@@ -205,6 +211,8 @@ export default {
     },
 
     initMonaco() {
+      this.languageVal = this.language;
+      this.languageVal = this.language;
       // console.log(this._editorBeforeMount());
       // Object.assign(options, this._editorBeforeMount()); //编辑器初始化前
       this.editor = monaco.editor[this.diffEditor ? "createDiffEditor" : "create"](

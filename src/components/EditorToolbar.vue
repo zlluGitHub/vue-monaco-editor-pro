@@ -97,8 +97,8 @@ export default {
       isOpenTheme: false,
       isOpenLanguage: false,
       size: 12,
-      theme: "",
-      // language: "",
+      // theme: "",
+      language: "",
       fontSize: [12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
       themeArr: [
         // {
@@ -121,7 +121,7 @@ export default {
       // languageArr: [],  ['abap', 'apex', 'azcli', 'bat', 'cameligo', 'clojure', 'coffee', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'solidity', 'sophia', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'xml', 'yaml'],
     };
   },
-  props: ["options", "language", "languageModal"],
+  props: ["options", "language", "languageModal","theme"],
   mounted() {
     this.size = this.options.fontSize;
     this.theme = this.options.theme;
@@ -146,7 +146,6 @@ export default {
       this.closeOpen();
     },
     handleSelectLanguage(value) {
-      // this.language = value;
       this.$emit("on-click", { type: "language", value });
       this.closeOpen();
     },

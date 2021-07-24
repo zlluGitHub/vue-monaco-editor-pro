@@ -1,6 +1,6 @@
 {
   "name": "vue-monaco-editor-pro",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vue-monaco-editor-pro 是基于 Monaco editor 开发的简易版 web 端代码编辑器 Vue 组件。",
   "private": false,
   "main": "src/index.js",
